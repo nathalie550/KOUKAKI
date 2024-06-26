@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer
  *
@@ -11,16 +12,28 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
+<footer id="colophon" class="site-footer">
+    <section class="fin">
+        <article class="oscar">
+            <img class="title-image" src="<?= get_stylesheet_directory_uri() . "/assets/images/titre_chats_errants.png" ?>">
+            <img class="background-image" src="<?= get_stylesheet_directory_uri() . "/assets/images/Rectangle_23.png" ?>">
+            <img class="oscar2" src="<?= get_stylesheet_directory_uri() . "/assets/images/oscars.png" ?>">
+
+        </article>
+
         <ul>
             <li><a href="#">Mentions Légales</a></li>
             <li><a href="#">STUDIO KOUKAKI</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
-	</footer><!-- #colophon -->
+    </section>
+
+    <script type="text/javascript" src="../skrollr.min.js"></script>
+</footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
 
 </body>
+
 </html>

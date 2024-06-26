@@ -1,0 +1,587 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* Pour éviter la barre de défilement horizontale pour l'animation des nuages */
+}
+
+/*MENU BURGER*/
+
+.site-title {
+    font-family: Quicksand;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    top: 40px;
+    left: 70px;
+    z-index: 6;
+    height: 80px;
+    align-content: center;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.is-active {
+    display: block;
+}
+
+.hamburger {
+    width: 40px;
+    height: 18px;
+    top: 31px;
+    margin-left: 1200px;
+    position: absolute;
+}
+
+/*span.hamburger-inner {
+    border: 1px 0px 0px 0px black;
+    color: black;
+}*/
+
+.hamburger.is-active {
+    position: absolute;
+    z-index: 1;
+    color: black;
+
+    .hamburger-inner {
+        background-color: black !important;
+
+        &:before {
+            background-color: white !important;
+        }
+    }
+}
+
+.overlay {
+    background: #FFF5E9;
+    /* height: 1024px; */
+    /* width: 100%; */
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    /* position: absolute; */
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    padding-bottom: 80px;
+}
+
+#links {
+    text-align: center;
+    line-height: 1.5em;
+    font-family: Roboto Mono;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 184px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+/*#links:hover {
+    color: orange;
+}*/
+
+/*SECTIONS FADE-IN*/
+
+.reveal-loaded .reveal [class*="reveal-"] {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.reveal-loaded [class*="reveal"] {
+    transition: 1s cubic-bezier(.5, 0, 0, 1);
+}
+
+/* On ajoute du délai */
+.reveal-loaded .reveal-2 {
+    transition-delay: .1s;
+}
+
+.reveal-loaded .reveal-3 {
+    transition-delay: .2s;
+}
+
+.reveal-loaded .reveal-4 {
+    transition-delay: .3s;
+}
+
+.reveal-loaded .reveal-5 {
+    transition-delay: .4s;
+}
+
+/*ANIMATIONS DES TITRES*/
+/*.section-title h2,
+.section-title h3 span {
+    animation: slideIn 2s ease-in-out forwards;
+}*/
+
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.section-title.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section.visible {
+    opacity: 1;
+    /* Change l'opacité à 1 pour l'effet d'apparition */
+    transform: translateY(0);
+    /* Remet à zéro la position */
+}
+
+/*1 PARTIE - TEMPLATE VIDEO*/
+.banner {
+    //Section pour le fade in
+    background-image: url(./assets/images/banner.png);
+    min-height: 806px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.banner img {
+    width: 50%;
+    overflow: hidden;
+    position: absolute;
+}
+
+
+/****************2 PARTIE - TEMPLATE STORY avec les fleurs qui tournent**********/
+
+.story #characters {
+    //VOIR C EST QUOI SINON SUPPRIME
+    margin: 2em;
+    text-align: center;
+    display: inline;
+}
+
+.story {
+    //Section globale des titres   
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.section-title span h2 {
+    // Titre L'Histoire
+    color: #FFF5E9;
+    font-size: 4.429rem;
+    background-image: url(.\assets\images\purple_title_bg.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 1em 2em;
+    margin: 0;
+    background-position: center;
+    text-align: center;
+    z-index: -1;
+}
+
+.story__article {
+    //Article du paragraphe Histoire 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 687px;
+    font-size: 15px;
+    padding-bottom: 2em;
+    background-color: #FFF5E9;
+    margin-left: 30px;
+}
+
+.story__article p {
+    font-family: Roboto Mono;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: black;
+    padding-left: 390px;
+    width: 990px;
+    height: 258px;
+}
+
+
+/*FLEUR ORANGE QUI TOURNE*/
+
+.story__article::after {
+    // fleur orange à droite hibiscus 
+    position: absolute;
+    left: calc(50% + 414px);
+    top: 2em;
+    -webkit-filter: grayscale(0) blur(0px);
+    filter: grayscale(0) blur(0px);
+    -webkit-transition: all 5.5s ease;
+    transition: all 0.5s ease;
+    animation: rotate 2s linear infinite;
+}
+
+.story_article::before {
+    // tige de la fleur orange à droite hibiscus
+    content: url(./assets/images/hibiscus_leaves.png);
+    position: absolute;
+    left: 0;
+    top: 1.8em;
+    z-index: 1;
+    -webkit-transition: all 5.5s ease;
+    transition: all 0.5s ease;
+    border-radius: 50%;
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/*MARGUERITE QUI TOURNE*/
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+.story h2::after {
+    //Fleur marguerie à gauche 
+    position: absolute;
+    left: 1;
+    z-index: 1;
+    -webkit-transition: all 5.5s ease;
+    transition: all 0.5s ease;
+    border-radius: 50%;
+    animation: rotate 2s linear infinite;
+}
+
+/*.section_title h2 .slideIn::before {
+    //Fleur marguerie à gauche marche pas
+    content: url(./assets/images/Sunflower_leaves.png);
+    position: absolute;
+    left: 0;
+    top: 1.8em;
+    z-index: 1;
+    -webkit-transition: all 5.5s ease;
+    transition: all 0.5s ease;
+    border-radius: 50%;
+    animation: rotate 2s linear infinite;
+}*/
+
+.story h2::before {
+    z-index: 1;
+}
+
+
+/*****************************TEMPLATE SWIPER PERSONNAGES************************/
+/*Div qui englobe tout */
+.personnages {
+    width: 1200px;
+    height: 600px;
+    display: flex;
+}
+
+
+/*Titre des personnages*/
+#characters {
+    display: block !important;
+    text-align: center;
+}
+
+.main-character h3 {
+    color: #FFF5E9;
+    display: block;
+    font-size: 42px;
+}
+
+/*div qui entoure les img et p*/
+.swiper-wraper {
+    display: flex;
+}
+
+.swiper {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.swiper-slide {
+    background-position: center;
+    height: auto;
+    box-shadow: 6px 6px 10px black;
+}
+
+.swiper-slide img {
+    display: block !important; // pr que les images se mettrent les unes en dessous des autres
+    width: 100%;
+}
+
+.center {
+    text-align: center;
+}
+
+
+/*TEMPLATE NUAGES*/
+#place {
+    width: 100%;
+    height: 699px;
+    background-image: url(../../assets/images/orange_characters_bg.png);
+}
+
+#place p {
+    font-family: Roboto Mono;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: -0.02em;
+    text-align: left;
+}
+
+.story #place {
+    background-image: url(../../assets/images/Studio_Koukaki-image_place.png);
+    background-size: cover;
+}
+
+.parallax {
+    height: 80vh;
+}
+
+.cloud {
+    position: absolute;
+    right: 50px;
+    filter: blur(4px);
+    /* Ajouter l'effet de flou */
+    z-index: 800;
+}
+
+.cloud img {
+    border-radius: 110px;
+}
+
+.cloud.appear {
+    opacity: 1;
+    /* Afficher les nuages */
+}
+
+.cloud1 {
+    background: url('assets/images/big_cloud.png') no-repeat center/cover;
+    width: 266px;
+    height: 91px;
+}
+
+.cloud2 {
+    background: url('assets/images/big_cloud.png') no-repeat center/cover;
+    width: 183px;
+}
+
+.cloud3 {
+    background: url('assets/images/little_cloud.png') no-repeat center/cover;
+    padding-top: 160px;
+    width: 142px;
+    height: 55px;
+}
+
+/****************************************** TEMPLATE STUDIO******************************/
+#studio-koukaki {
+    position: relative;
+    width: 1440px;
+    height: 1520px;
+}
+
+.paragraphe-studio-koukaki {
+    display: flex;
+    justify-content: space-between;
+    width: 66.66%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    gap: 50px;
+    margin-left: 267px;
+}
+
+.paragraphe-studio-koukaki p {
+    font-family: Roboto Mono;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: -0.02em;
+    text-align: left;
+}
+
+#studio-koukaki h2 {
+    padding-top: 40px;
+}
+
+#studio-koukaki\ reveal-5>img {
+    width: 202px;
+    height: 198px;
+    margin-top: 20px;
+    margin-right: 700px;
+}
+
+#studio-koukaki\ reveal-5>img.flower {
+    width: 108.76px;
+    height: 108.76px;
+    margin-left: 1150px;
+    position: absolute;
+    z-index: 1;
+    margin-top: 200px;
+}
+
+/*#studio-koukaki\ reveal-5>div>img {
+    width: 143.89px;
+    height: 34.45px;
+    top: 3326.01px;
+    left: 704px;
+}*/
+
+/*#studio-koukaki\ reveal-5>div>img.flower {
+    width: 108.76px;
+    height: 108.76px;
+    padding-left: 150px;
+}*/
+
+/*#studio-koukaki h2::after {
+    //Fleur à droite du titre studio koukaki  
+    position: absolute;
+    right: 1em;
+    top: 1.2;
+
+}
+
+#studio-koukaki h2::before {
+    //Fleur à gauche du titre studio koukaki  
+    position: absolute;
+    left: 0 !important;
+    top: 1.2;
+}
+
+
+#studio-koukaki>div::before {
+    position: absolute;
+    left: calc(50% - 17.225px);
+    top: 35%;
+}*/
+
+
+
+/*FOOTER*/
+.fin {
+    width: 1440px;
+    height: 600px;
+}
+
+#colophon {
+    position: relative;
+    padding-top: 5px;
+    margin-top: 2px;
+    overflow: hidden;
+    height: 60%;
+}
+
+footer#colophon.site-footer::before {
+    position: absolute;
+    left: 4em;
+}
+
+.site-footer::after {
+    position: absolute;
+    right: -4em;
+    bottom: 30em;
+}
+
+.colum {
+    flex-direction: column;
+}
+
+.oscar {
+    margin-top: 120px;
+    margin-left: 160px;
+    position: relative;
+    width: 950px;
+    height: 250px;
+}
+
+.background-image {
+    width: 70%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.title-image {
+    width: 60%;
+    position: absolute;
+    top: 45%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.oscar2 {
+    position: absolute;
+    top: 0;
+    left: 650px;
+    margin-top: 40px;
+    z-index: 3;
+}
+
+.site-footer ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    list-style-type: none;
+    margin-top: 170px;
+}
+
+
+#studio .section-title h2 span::before {
+    //Fleur violette à gauche
+    content: url(./assets/images/random_flower.png);
+    position: absolute;
+    padding-left: 15px;
+    top: 0;
+    z-index: 1;
+    padding-bottom: 0;
+}
+
+.story h2::before {
+    z-index: 1;
+}
+
+.site-footer ul::after {
+    //Fleur tout en bas
+    position: absolute;
+    left: calc(50% - 323px);
+    bottom: -30.5em;
+    z-index: -1;
+}
